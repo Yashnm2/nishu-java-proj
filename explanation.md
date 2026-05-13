@@ -5,6 +5,8 @@ events. It does not use Spring, JavaFX, Swing, Maven, or Gradle. The program is
 run from `Main.java`, reads input from the terminal, and stores all data in
 memory while the program is running.
 
+![Codebase overview diagram](docs/codebase-overview.svg)
+
 ## Project Structure
 
 ```text

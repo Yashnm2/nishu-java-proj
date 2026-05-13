@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">Student CCA Management System codebase overview</title>
+  <desc id="desc">Visual explanation of the Java console application structure, showing Main, view, controller, and backend layers with their key files and data flow.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fc; }
+      .title { font: 700 34px Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #4f5b6d; }
+      .layer-title { font: 700 22px Arial, sans-serif; fill: #172033; }
+      .layer-note { font: 400 14px Arial, sans-serif; fill: #526070; }
+      .file { font: 700 16px Consolas, "Courier New", monospace; fill: #1b2535; }
+      .detail { font: 400 13px Arial, sans-serif; fill: #526070; }
+      .small { font: 400 12px Arial, sans-serif; fill: #667386; }
+      .main-card { fill: #fff4e6; stroke: #d88b21; stroke-width: 2; }
+      .view-card { fill: #eaf7f0; stroke: #2f9c63; stroke-width: 2; }
+      .controller-card { fill: #eaf1ff; stroke: #3e70c7; stroke-width: 2; }
+      .backend-card { fill: #f3edff; stroke: #7b55c7; stroke-width: 2; }
+      .mini-card { fill: #ffffff; stroke: rgba(23, 32, 51, 0.18); stroke-width: 1.2; }
+      .flow { stroke: #334155; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .thin-flow { stroke: #64748b; stroke-width: 1.8; fill: none; marker-end: url(#arrow-soft); }
+      .pill { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#334155" />
+    </marker>
+    <marker id="arrow-soft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="820" />
+
+  <text class="title" x="54" y="62">Student CCA Management System</text>
+  <text class="subtitle" x="56" y="94">Plain Java console app organized with a lightweight MVC-style structure</text>
+
+  <rect class="pill" x="944" y="38" width="276" height="42" rx="21" />
+  <text class="small" x="978" y="64">No Spring, JavaFX, Swing, Maven, or Gradle</text>
+
+  <rect class="main-card" x="470" y="130" width="340" height="110" rx="14" />
+  <text class="layer-title" x="596" y="166">Main.java</text>
+  <text class="detail" x="516" y="196">Creates Scanner, controllers, and views</text>
+  <text class="detail" x="528" y="217">Starts login loop and menu flow</text>
+
+  <rect class="view-card" x="54" y="310" width="350" height="350" rx="16" />
+  <text class="layer-title" x="84" y="350">view/</text>
+  <text class="layer-note" x="84" y="374">Console input and output</text>
+
+  <rect class="mini-card" x="84" y="410" width="290" height="58" rx="9" />
+  <text class="file" x="104" y="435">BaseView.java</text>
+  <text class="detail" x="104" y="454">Shared Scanner helpers and parseInt()</text>
+
+  <rect class="mini-card" x="84" y="488" width="290" height="58" rx="9" />
+  <text class="file" x="104" y="513">LoginView.java</text>
+  <text class="detail" x="104" y="532">Prompts for student ID and password</text>
+
+  <rect class="mini-card" x="84" y="566" width="290" height="66" rx="9" />
+  <text class="file" x="104" y="591">CCA_EventView.java</text>
+  <text class="detail" x="104" y="610">Shows menu: view, add, edit, delete, logout</text>
+
+  <rect class="controller-card" x="465" y="310" width="350" height="350" rx="16" />
+  <text class="layer-title" x="495" y="350">controller/</text>
+  <text class="layer-note" x="495" y="374">Business logic between UI and models</text>
+
+  <rect class="mini-card" x="495" y="410" width="290" height="66" rx="9" />
+  <text class="file" x="515" y="435">AuthController.java</text>
+  <text class="detail" x="515" y="454">Demo accounts, login, logout</text>
+  <text class="small" x="515" y="470">Stores currentStudent</text>
+
+  <rect class="mini-card" x="495" y="498" width="290" height="66" rx="9" />
+  <text class="file" x="515" y="523">CCA_EventController.java</text>
+  <text class="detail" x="515" y="542">Adds, lists, edits, deletes CCA events</text>
+
+  <rect class="mini-card" x="495" y="586" width="290" height="58" rx="9" />
+  <text class="file" x="515" y="611">CRUDController.java</text>
+  <text class="detail" x="515" y="630">Generic getAll() and delete() contract</text>
+
+  <rect class="backend-card" x="876" y="310" width="350" height="350" rx="16" />
+  <text class="layer-title" x="906" y="350">backend/</text>
+  <text class="layer-note" x="906" y="374">Domain data and interfaces</text>
+
+  <rect class="mini-card" x="906" y="398" width="290" height="58" rx="9" />
+  <text class="file" x="926" y="423">Student.java</text>
+  <text class="detail" x="926" y="442">Student account and event list</text>
+
+  <rect class="mini-card" x="906" y="472" width="290" height="58" rx="9" />
+  <text class="file" x="926" y="497">CCA_Event.java</text>
+  <text class="detail" x="926" y="516">One activity with hours and SEAL points</text>
+
+  <rect class="mini-card" x="906" y="546" width="290" height="58" rx="9" />
+  <text class="file" x="926" y="571">Activity.java</text>
+  <text class="detail" x="926" y="590">Interface for activity fields</text>
+
+  <rect class="mini-card" x="906" y="620" width="290" height="58" rx="9" />
+  <text class="file" x="926" y="645">Authenticatable.java</text>
+  <text class="detail" x="926" y="664">Interface for ID and password</text>
+
+  <path class="flow" d="M640 240 L640 296" />
+  <path class="flow" d="M470 185 C330 185 230 238 230 300" />
+  <path class="flow" d="M810 185 C950 185 1050 238 1050 300" />
+  <path class="flow" d="M405 485 L454 485" />
+  <path class="flow" d="M816 485 L865 485" />
+
+  <path class="thin-flow" d="M640 660 C640 735 230 735 230 670" />
+  <path class="thin-flow" d="M1050 660 C1050 735 640 735 640 670" />
+
+  <rect class="pill" x="466" y="706" width="348" height="42" rx="21" />
+  <text class="small" x="492" y="732">Data is stored in memory while the app runs</text>
+
+  <text class="small" x="206" y="290">starts UI</text>
+  <text class="small" x="975" y="290">creates data layer</text>
+  <text class="small" x="418" y="470">calls</text>
+  <text class="small" x="830" y="470">updates</text>
+  <text class="small" x="488" y="704">menu repeats after actions</text>
+  <text class="small" x="852" y="704">student owns CCA events</text>
+</svg>
